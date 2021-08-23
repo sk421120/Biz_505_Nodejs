@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Board</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>나의 게시판</h1>
+    <table>
+      <tr>
+        <th>NO</th>
+        <td>작성일자</td>
+        <td>작성자</td>
+        <td>제목</td>
+        <td>조회수</td>
+      </tr>
+      <% BBS.forEach( (vo,index) => { %>
+        <tr data-seq="<%= vo.b_id %>">
+          <td><%- index %></td>
+          <td><%- vo.b_date %></td>
+          <td><%- vo.b_time %></td>
+          <td><%- vo.b_subject %></td>
+          <td><%- vo.b_count %></td>
+        </tr>
+      <% }) %>
+    </table>
+    <button class="btn_write">글쓰기</button>
+  </body>
+  <script>
+    document.querySelector("button.btn_write").addEventListener("click", () => {
+      document.location.href = "/bbs/write";
+    });
+    document.querySelector("table").addEventListener("click", (e)=>{
+      let tr = e.target.closest("TR");
+      let seq = tr.dataset.seq;
+      document.location.href = "/bbs/update?id="+seq;
+    })
+  </script>
+</html>
