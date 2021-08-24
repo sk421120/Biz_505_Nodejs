@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Board</title>
+    <link rel='stylesheet' href='/css/main.css' />
+  </head>
+  <body>
+    <header>
+      <h1>My Board</h1>
+    </header>
+    <section>
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>작성일자</th>
+          <th>작성시각</th>
+          <th>작성자</th>
+          <th>제목</th>
+          <th>조회 수</th>
+        </tr>
+        <% BBS.forEach((vo, index)=>{ %>
+        <tr data-id="<%- vo.b_id %>">
+          <td><%- index %></td>
+          <td><%- vo.b_date %></td>
+          <td><%- vo.b_time %></td>
+          <td><%- vo.b_writer %></td>
+          <td><%- vo.b_subject %></td>
+          <td><%- vo.b_count %></td>
+        </tr>
+        <% }) %>
+      </table>
+      <div class="btn_box">
+        <button class="btn_write">글쓰기</button>
+      </div>
+    </section>
+    <footer>
+      <address>CopyRight &copy; sk421120@naver.com</address>
+    </footer>
+  </body>
+</html>
