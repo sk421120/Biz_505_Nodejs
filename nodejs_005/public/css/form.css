@@ -17,6 +17,9 @@ form label{
 form input {
     width: 60%;
 }
+form div.textarea {
+    display: flex;
+}
 
 div.btn_box {
     text-align: right;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title></title>
+        <link href="/css/main.css" rel="stylesheet"/>
+        <style>
+            section.bbs_detail {
+                width: 80%;
+                margin: 10px auto;
+            }
+
+            section.bbs_detail span {
+                display: inline-block;
+                padding:8px;
+                margin:5px;
+            }
+
+            section.bbs_detail span.title {
+                width: 30%;
+                background-color: #fedddd;
+                text-align: right;
+            }
+
+            section.bbs_detail span.data {
+                width: 60%;
+                background-color: #eef;
+            }
+
+        </style>
+    </head>
+    <body>
+        <section class="bbs_detail">
+            <div><span class="title">Writer</span><span class="data"><%- BBS.b_writer %></span></div>
+            <div><span class="title">Date</span><span class="data"><%- BBS.b_date %></span></div>
+            <div><span class="title">Time</span><span class="data"><%- BBS.b_time %></span></div>
+            <div><span class="title">Subject</span><span class="data"><%- BBS.b_subject %></span></div>
+            <div><span class="title">Content</span><span class="data"><%- BBS.b_text %></span></div>
+            <div class="btn_box">
+                <button class="btn btn_home">HOME</button>
+                <button class="btn btn_update">UPDATE</button>
+                <button class="btn btn_delete">DELETE</button>
+            </div>
+        </section>
+    </body>
+    <script>
+        document.querySelector("div.btn_box").addEventListener("click", (e)=>{
+            const btn = e.target;
+            const className = btn.className;
+            let url = "/"
+            let id = `<%- BBS.b_id %>`;
+            if(className.includes("btn_update")){
+                url += `bbs/update?b_id=${id}`
+            } else if(className.includes("btn_delete")) {
+                url += `bbs/delete?b_id=${id}`
+            }
+            document.location.href=url;
+        })
+    </script>
+</html>
