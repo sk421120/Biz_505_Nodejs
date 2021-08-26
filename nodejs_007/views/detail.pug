@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+style. 
+
+section.bbs_detail 
+    div
+        span.title Writer
+        span.data= BB.b_writer
+    div 
+    div 
+
+    div 
+    div 
+
+    .btn_box
+        button.btn.btn_home HOME 
+        button.btn.btn_update UPDATE
+        button.btn.btn_delete DELETE
+
+section.reply
+    % BBS.tbl_replies.forEach( (vo,index)=>{ %
+    each vo,index in BBS.tbl_replies
+        article.reply
+            div=vo.r_writer %/div
+            div.reply_delete(data-rid= vo.id) X
+
+    form(method="POST", action="/bbs/reply")
+        input type="hidden" name="r_postId" value="%- BBS.b_id %" /
+        
+    } )
