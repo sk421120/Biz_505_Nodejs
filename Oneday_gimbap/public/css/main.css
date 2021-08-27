@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+header,
+section#main,
+footer {
+  width: 80%;
+  margin: 10px auto;
+}
+
+header {
+  background-color: greenyellow;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  text-shadow: 2px 2px 2px black;
+}
+
+article.pos {
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+}
+
+article.pos div.trow {
+  display: flex;
+  flex-direction: row;
+}
+
+article.pos div.trow div.tdata {
+  flex:1;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+  background-color: chocolate;
+  cursor: pointer;
+}
+
+article.pos div.trow div.tdata.guest {
+  background-color: darkorange;
+}
+
+
+footer {
+  text-align: center;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
