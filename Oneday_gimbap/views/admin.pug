@@ -1,9 +1,12 @@
 extends layout
 
 block content
-	section#main 
-		form#admin(method="POST")
-			label(for="") PASSWORD
-			input(type="password" name="pw" placeHolder=`${MSG}`)
-			button.btn_login LOGIN 
+	section#main
+		article.admin
+			h2 관리자 페이지 입니다.
+			h3 상품관리를 위한 비밀번호를 입력해주세요
+			form#admin(method="POST")
+				label(for="") PASSWORD
+				input(type="password" name="pw" placeHolder=`${MSG}`)
+				button.btn_login(type="button") LOGIN 
 	script.

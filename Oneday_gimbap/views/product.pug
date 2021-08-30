@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	section#main
+		article.product
+			form(method="POST" action="admin/insert") 
+				input(type="text" placeHolder="상품이름")
+				input(type="number" placeHolder="가격") 
+				button.insert 상품 추가
+			if(PRODUCTS) 
+				each vo in PRODUCTS
+					p vo.p_id
+			else
+				p 상품이 없습니다
+	script.
+		

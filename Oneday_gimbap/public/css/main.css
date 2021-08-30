@@ -68,3 +68,21 @@ footer {
   color: black;
   padding: 5px;
 }
+
+/* admin */
+article.admin {
+
+  text-align: center;
+}
+
+.admin h2, .admin h3, .admin form {
+  padding:10px;
+}
+
+label, input, article.admin button {
+  margin:5px;
+}
+
+article.admin form {
+  width: 80%; 
+}
