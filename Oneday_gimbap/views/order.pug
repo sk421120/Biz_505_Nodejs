@@ -4,7 +4,7 @@ block content
 	link(rel="stylesheet",href="/css/order.css")
 	section#order
 		article.order
-			div.t_num= ORDER.o_table
+			div.t_num #{ORDER.o_table} 번 테이블
 			table.order_list
 				tr
 					th 품목
@@ -24,7 +24,10 @@ block content
 						td(colspan="4") 주문 목록이 없습니다!
 
 		article.product
-			table.product_list
-				tr
-					td 냠냠
+			if( PRODUCTS )
+				each vo in PRODUCTS
+					button.product(data-code= vo.p_code) #{vo.p_name}
+			else
+				button.no 상품이 존재하지 않습니다
+
 	script.

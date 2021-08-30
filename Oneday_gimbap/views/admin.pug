@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	section#main 
+		form#admin(method="POST")
+			label(for="") PASSWORD
+			input(type="password" name="pw" placeHolder=`${MSG}`)
+			button.btn_login LOGIN 
+	script.

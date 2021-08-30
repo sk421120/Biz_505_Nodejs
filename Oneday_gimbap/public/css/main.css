@@ -33,9 +33,12 @@ article.pos {
   background-color: rgb(238, 206, 164);
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 article.pos div.trow {
+  width: 90%;
+  margin: 0 auto;
   flex-wrap: nowrap;
   display: flex;
   flex-direction: row;
@@ -44,7 +47,7 @@ article.pos div.trow {
 article.pos div.trow div.tdata {
   flex:1;
   text-align: center;
-  padding: 20px;
+  padding: 20px 10px;
   border-radius: 8px;
   margin: 15px;
   color: white;
