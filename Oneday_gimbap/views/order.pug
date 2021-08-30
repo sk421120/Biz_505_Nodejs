@@ -1,0 +1,30 @@
+extends layout
+
+block content
+	link(rel="stylesheet",href="/css/order.css")
+	section#order
+		article.order
+			div.t_num= ORDER.o_table
+			table.order_list
+				tr
+					th 품목
+					th 단가
+					th 수량
+					th 금액
+				if( ORDER.o_seq)
+					each vo in ORDER
+						tr(data-seq=vo.o_seq)
+							td= vo.o_seq
+							td= vo.o_pcode
+							td= vo.o_price
+							td= vo.o_count
+							td= (vo.o_count * vo.o_price)
+				else
+					tr
+						td(colspan="4") 주문 목록이 없습니다!
+
+		article.product
+			table.product_list
+				tr
+					td 냠냠
+	script.

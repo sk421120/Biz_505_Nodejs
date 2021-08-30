@@ -5,32 +5,38 @@
 }
 
 body {
-  width: 100vw;
   height: 100vh;
 }
 
 header,
-section#main,
+section,
 footer {
-  width: 80%;
-  margin: 10px auto;
+  width: 100vw;
+  margin: 0px auto;
 }
 
 header {
-  background-color: greenyellow;
+  height: 20.4vh;
+  background-color: #ff4726;
   color: white;
   text-align: center;
-  padding: 2rem;
-  text-shadow: 2px 2px 2px black;
+  padding: 2.5rem;
+  text-shadow: 0px 0px 4px black;
+  border-bottom:5px solid black;
 }
 
+article {
+  height: 74.5vh;
+  border-radius: 2px;
+}
 article.pos {
-  background-color: burlywood;
+  background-color: rgb(238, 206, 164);
   display: flex;
   flex-direction: column;
 }
 
 article.pos div.trow {
+  flex-wrap: nowrap;
   display: flex;
   flex-direction: row;
 }
@@ -39,8 +45,8 @@ article.pos div.trow div.tdata {
   flex:1;
   text-align: center;
   padding: 20px;
-  border-radius: 5px;
-  margin: 10px;
+  border-radius: 8px;
+  margin: 15px;
   color: white;
   background-color: chocolate;
   cursor: pointer;
@@ -52,8 +58,10 @@ article.pos div.trow div.tdata.guest {
 
 
 footer {
+  height: 5vh;
   text-align: center;
-  background-color: blue;
-  color: white;
-  padding: 10px;
+  border-top:5px solid black;
+  background-color: rgb(255, 230, 0);
+  color: black;
+  padding: 5px;
 }

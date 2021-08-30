@@ -11,8 +11,20 @@ const router = express.Router();
 const { tbl_orders } = require("../models/index");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index");
+router.get("/", function (req, res) {
+  let o_table = req.query.o_table
+  console.log(o_table)
+  const orders = tbl_orders.findOne({
+    where : { o_table }
+  }).then(result =>{
+    if(result == null) {
+      result = orders
+      result.o_table = o_table
+    }
+    // console.table(orders)
+    res.render("order", { ORDER:result});
+  })
+  
 });
 
 module.exports = router;
