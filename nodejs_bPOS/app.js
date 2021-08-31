@@ -4,6 +4,13 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+const sequelize = require("./models/index");
+sequelize.sequelize.sync().then((result) => {
+  console.log("Host : ", result.options.host);
+  console.log("Database : ", result.options.database);
+  console.log("DB Connection");
+});
+
 var indexRouter = require("./routes/index");
 var posRouter = require("./routes/posRouter");
 
