@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input</title>
+    <script src="/js/input.js"></script>
+    <script src="/js/input_form.js"></script>
+  </head>
+  <body>
+    <form id="form_input">
+      <div><label for="">Date</label><input type="text" name="b_date" /></div>
+      <div><label for="">Time</label><input type="text" name="b_time" /></div>
+      <div>
+        <label for="">Writer</label><input type="text" name="b_writer" />
+      </div>
+      <div>
+        <label for="">Subject</label><input type="text" name="b_subject" />
+      </div>
+      <div>
+        <label for="">Content</label><input type="text" name="b_text" />
+      </div>
+    </form>
+    <div><button class="btn_save_json">JSON SAVE</button></div>
+    <div><button class="btn_save_form">FORM SAVE</button></div>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Writer</th>
+          <th>Subject</th>
+          <th>Content</th>
+        </tr>
+      </thead>
+      <tbody class="bbs_list"></tbody>
+    </table>
+  </body>
+</html>
