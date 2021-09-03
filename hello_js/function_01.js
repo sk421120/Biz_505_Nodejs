@@ -1,6 +1,6 @@
-const 함수1 = function() {
-    console.log("1");
-}
+const 함수1 = function () {
+  console.log("1");
+};
 
 함수3();
 함수1();
@@ -9,9 +9,9 @@ const 함수1 = function() {
 함수2();
 함수1();
 
-const 함수2 = function() {
-    console.log("2");
-}
+const 함수2 = function () {
+  console.log("2");
+};
 
 // ES6 이전에 사용하던 코드
 
@@ -21,5 +21,5 @@ const 함수2 = function() {
 // 만약 선언문 보다 먼저 호출(사용한) 곳이 있으면
 // 내부적으로 코드의 위치를 변경하는 시도를 한다
 function 함수3() {
-    console.log("3");
+  console.log("3");
 }
