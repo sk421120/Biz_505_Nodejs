@@ -1,3 +1,6 @@
+# API KEY
+mongoConfig.json
+
 # Logs
 logs
 *.log

@@ -15,20 +15,37 @@ import logger from "morgan";
 
 import session from "express-session";
 import passport from "passport";
-import passportConfig from "./modules/Passport.js";
+import passportConfig from "./modules/PassportConfig.js";
 
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
 import cors from "cors";
+import mongoose from "mongoose";
+
+// mongooose
+const dbConn = mongoose.connection;
+dbConn.once("open", () => {
+  console.log("MongoDB Open OK");
+});
+dbConn.on("error", () => {
+  console.error;
+});
+
+// const mongoConfig = require("./config/mongoConfig.json");
+const mongoLocal = "mongodb://localhost:27017";
+mongoose.connect(mongoLocal);
 
 const app = express();
 
+// cors
 const whiteURL = ["http://localhost:3000"];
 const corsOption = {
   origin: (origin, callback) => {
     const isWhiteURL = whiteURL.indexOf(origin) !== -1;
     callback(null, isWhiteURL);
   },
+  //   세션정보를 클라이언트에게 전해주겠다
+  credentials: true,
 };
 
 app.use(cors(corsOption));
@@ -46,13 +63,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join("./public")));
 
-app.use(session({ secret: "aa1234", resave: true, saveUninitialized: false }));
+// 			밀리초 * 초 * 분 * 시간
+const oneDay = 1000 * 60 * 60 * 24;
+
+app.use(
+  session({
+    secret: "aa1234",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: false,
+      httpOnly: false,
+      maxAge: oneDay,
+    },
+  })
+);
 app.use(passport.initialize()); // passport start
 app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 passportConfig();
+
+// response를 할때 session에 담긴 값을 클라이언트로 전송하기 위한 옵션 설정하기
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
