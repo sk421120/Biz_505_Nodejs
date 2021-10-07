@@ -38,7 +38,7 @@ login 정책을 수행할 미들웨어
 	passport.authenticate("local")
 */
 router.post("/login", passport.authenticate("local"), (req, res) => {
-  //   console.log("node", req.user);
+  console.log("node", req.user);
   //   res.json({ user: req.user });
   //   res.json(req.message);
   res.json({ userid: req.user.userid, password: req.user.password });
