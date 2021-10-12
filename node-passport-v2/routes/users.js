@@ -23,6 +23,7 @@ router.post("/", (req, res) => {
     console.log("session OK");
     res.json(req.user);
   } else {
+    console.log("NOT session");
     res.json([]);
   }
 });
@@ -82,8 +83,8 @@ passport로 로그인된 경우 req.logout() 함수가 생성되며
 해당 함수를 호출하면 passport logout 수행된다
 */
 router.post("/logout", async (req, res) => {
-  await req.logout();
   await req.session.destroy();
+  await req.logout();
   res.send({ message: "logout OK" });
 });
 
